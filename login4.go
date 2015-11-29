@@ -9,8 +9,8 @@ import (
 
 func main() {
 	v := url.Values{}
-	v.Add("uname", "cwenadmin")
-	v.Add("pwd", "yinchengwen321")
+	v.Add("uname", "")
+	v.Add("pwd", "")
 	cl := &http.Client{}
 
 	resp, err := cl.PostForm("http://cwengo.com/admin/login", v)

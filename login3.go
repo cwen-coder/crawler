@@ -21,12 +21,16 @@ func main() {
 
 	resp, _ := client.Do(req) //发送
 	defer resp.Body.Close()   //一定要关闭resp.Body
+	var cookie *http.Cookie
+	for _, cookie = range resp.Cookies() {
+	}
 	//data, _ := ioutil.ReadAll(resp.Cookies())
 	//fmt.Println(resp.Cookies())
-	req.Header.Set("Cookies", resp.Cookies())
+
 	req, _ = http.NewRequest("GET", "http://cwengo.com/admin/home", nil)
-	resp, _ = client.Do(req) //发送
-	data, _ := ioutil.ReadAll(resp.Body())
-	fmt.Println(data)
+	req.Header.Set("Cookie", cookie.Name+"="+cookie.Value)
+	resp1, _ := client.Do(req) //发送
+	data, _ := ioutil.ReadAll(resp1.Body)
+	fmt.Println(string(data))
 
 }
