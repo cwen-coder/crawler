@@ -30,7 +30,7 @@ func main() {
 }
 
 func receive() {
-	fmt.Println("Begin to receive elementd from chan...")
+	fmt.Println("Begin to receive elementd from chan1...")
 	timer := time.After(30 * time.Second)
 Loop:
 	for {
@@ -48,6 +48,7 @@ Loop:
 			break Loop
 		}
 	}
+
 	fmt.Println("--end")
 }
 
