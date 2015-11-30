@@ -4,11 +4,24 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/http/cookiejar"
 	"net/url"
 	"strings"
 )
 
 func main() {
+	c1 := &http.Client{}
+	req2, _ := http.NewRequest("GET", "http://cwengo.com/admin/login", nil)
+	res2, _ := c1.Do(req2)
+
+	var temp_cookies = res2.Cookies()
+
+	for _, v := range res2.Cookies() {
+		req2.AddCookie(v)
+	}
+	Ja, _ := cookiejar.New(nil)
+	getURL1, _ := url.Parse("http://cwengo.com/admin/login")
+	Ja.SetCookies(getURL1, temp_cookies)
 	v := url.Values{}
 	v.Add("uname", "cwenadmin")
 	v.Add("pwd", "yinchengwen321")
@@ -21,16 +34,18 @@ func main() {
 
 	resp, _ := client.Do(req) //发送
 	defer resp.Body.Close()   //一定要关闭resp.Body
-	var cookie *http.Cookie
-	for _, cookie = range resp.Cookies() {
-	}
+
 	//data, _ := ioutil.ReadAll(resp.Cookies())
 	//fmt.Println(resp.Cookies())
+	var cookies = resp.Cookies()
+	c := &http.Client{}
 
-	req, _ = http.NewRequest("GET", "http://cwengo.com/admin/home", nil)
-	req.Header.Set("Cookie", cookie.Name+"="+cookie.Value)
-	resp1, _ := client.Do(req) //发送
-	data, _ := ioutil.ReadAll(resp1.Body)
+	Jar, _ := cookiejar.New(nil)
+	getURL, _ := url.Parse("http://cwengo.com/admin/home")
+	Jar.SetCookies(getURL, cookies)
+	c.Jar = Jar
+	res, _ := c.Get("http://cwengo.com/admin/home")
+	data, _ := ioutil.ReadAll(res.Body)
 	fmt.Println(string(data))
 
 }

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+
+
+
+<link href="../css/OA_background.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.STYLE1 {
+	font-size: 16px;
+	font-weight: bold;
+}
+.STYLE3 {font-size: 12pt}
+INPUT {
+	 font-family: "tahoma", "����"; 
+    font-size: 9pt; color: #003366;
+    border: 0px #93bee2 solid;
+    border-bottom: #93bee2 1px solid;
+    border-left: #93bee2 1px solid;
+    border-right: #93bee2 1px solid;
+    border-top: #93bee2 1px solid;*/
+    background-image:url(../images/blue_button_bg.gif);
+    background-color: #ffffff;
+    cursor: hand;
+    font-style: normal ;
+}
+-->
+</style>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>ѧ����ϸ��Ϣ</title>
+</head>
+
+<link href="css/OA_background.css" rel=stylesheet>
+<script language="javascript">
+function fsave(){
+    alert("�ϴ���ƬҪ����\n  1����ѡ�񱳾�Ϊ��ɫ��׼������Ƭ��\n  2����Ƭ�ߴ�Ϊ192X144����X��������С���ó���25kb��\n  3��ѧ����Ƭ�ϴ��ɹ��󣬾�����Ա���˺����滻ԭ����Ƭ��֮�󽫲����޸ġ� \n  4����ҵ����ͼ���ɼ�������Ƭ�����޸ġ�")  
+    
+     changImg();
+    
+ // temp.disabled=true 
+  }
+
+function changImg(){
+var str= document.forms[0].file1.value;
+if(str.length>0){
+var strs=str.toLowerCase();
+var lens=strs.lastIndexOf(".");
+var extname=strs.substring(lens);
+if(extname!=".jpg"&&extname!=".jpeg")
+{
+  alert("��ѡ��JPG��JPEG��ʽ����Ƭ,����֤��Ƭ������25K!");
+  document.forms[0].file1.focus();  
+  return false;
+}else{
+/*if(document.all("loadImg").offsetWidth!=132&&document.all("loadImg").offsetHeight!=99){
+alert("��ѡ������Ƭ��С��"+document.all("loadImg").offsetWidth+"X"+document.all("loadImg").offsetHeight+"n"+"��ѡ��132X99��С����Ƭ")
+return (false)
+}*/
+   window.document.forms[0].action='ACTIONQUERYSTUDENT.APPPROCESS?mode=1';
+   window.document.forms[0].target = "_self";	
+   window.document.forms[0].submit(); 
+}
+}else{
+   return true;  
+}
+
+}
+
+</script>
+<body style="overflow:auto;">
+<form name="" action="" id="" method="post" target="_parent" enctype="multipart/form-data">
+<table border="1" align="center"  width="70%" bordercolor="#B4E2A4" style="BORDER-COLLAPSE:collapse" cellspacing="1" class=tableborder>
+  <tr class="color-header" height="28px">
+    <td height="35" colspan="5" align="center" nowrap class="color-rowalert STYLE1">ѧ��������Ϣ</td>
+	</tr>
+	  
+	<tr class="color-header" height="28px">
+    <td width="20%" height="30" align="center" valign="middle" nowrap class="color-row">ѧУ����:</td>
+	<td width="17%" align="left" valign="middle" nowrap class="color-row">������ҵ��ѧ</td>
+	<td width="18%" align="center" valign="middle" nowrap class="color-row">����Ժϵ:</td>
+	<td width="28%" align="left" valign="middle" nowrap class="color-row">��Ϣ��ѧ�빤��ѧԺ</td>
+	<td width="17%" rowspan="4" align="center" valign="middle" nowrap class="color-row"><img id=loadImg width="100" height="150" src="ACTIONQUERYSTUDENTPIC.APPPROCESS?ByStudentNO=null"/>
+	 
+	<br><span class="style2">������Ƭ</span>
+	<br><input type="file" onChange="changImg()"  class="button" style="cursor:hand;width:92%" name="file1"  onClick="fsave()" ></td>
+
+	</tr>
+	<tr class="color-header" height="28px">
+    <td width="20%" height="30" align="center" valign="middle" nowrap class="color-row">ѧ&nbsp;&nbsp;&nbsp;&nbsp;��:</td>
+	<td width="17%" height="30" align="left" valign="middle" nowrap class="color-row">130405212</td>
+	<td width="18%" height="30" align="center" valign="middle" nowrap class="color-row">��������:</td>
+	<td width="28%" height="30" align="left" valign="middle" nowrap class="color-row">����</td>
+	</tr>
+	<tr class="color-header" height="28px">
+    <td width="20%" height="30" align="center" valign="middle" nowrap class="color-row">��&nbsp;&nbsp;&nbsp;&nbsp;��:</td>
+	<td width="17%" height="30" align="left" valign="middle" nowrap class="color-row">������</td>
+	<td width="18%" height="30" align="center" valign="middle" nowrap class="color-row">����רҵ:</td>
+	<td width="28%" height="30" align="left" valign="middle" nowrap class="color-row">��������ѧ�뼼��</td>
+	</tr>
+	<tr class="color-header" height="28px">
+    <td width="20%" height="30" align="center" valign="middle" nowrap class="color-row">��&nbsp;&nbsp;&nbsp;&nbsp;��:</td>
+	<td width="17%" height="30" align="left" valign="middle" nowrap class="color-row">��</td>
+	<td width="18%" height="30" align="center" valign="middle" nowrap class="color-row">�����༶:</td>
+	<td height="31" height="30" align="left" valign="middle" nowrap class="color-row">������1302��</td>
+	</tr>	
+	<tr class="color-header" height="28px">
+    <td width="20%" height="30" align="center" valign="middle" nowrap class="color-row">��&nbsp;&nbsp;&nbsp;&nbsp;��:</td>
+	<td width="17%" height="30" align="left" valign="middle" nowrap class="color-row">2013</td>
+	<td width="18%" height="30" align="center" valign="middle" nowrap class="color-row">����֤��:</td>
+	<td height="33" colspan="2" align="left" valign="middle" nowrap class="color-row">32072119931018063X</td>
+	</tr>	
+	<tr class="color-header" height="28px">
+    <td width="20%" height="30" align="center" valign="middle" nowrap class="color-row">��&nbsp;&nbsp;&nbsp;&nbsp;��:</td>
+	<td width="17%" height="30" align="left" valign="middle" nowrap class="color-row">����</td>
+	<td width="18%" height="30" align="center" valign="middle" nowrap class="color-row">�˳���վ:</td>
+	<td height="36" colspan="2" align="left" valign="middle" nowrap class="color-row">����</td>
+	</tr>		
+	
+  </table>
+<table border="1" align="center"  width="80%" bordercolor="#FFFFF5" style="BORDER-COLLAPSE:collapse" cellspacing="1" class=tableborder>
+  <tr class="color-header" height="28px">
+    <td height="35" colspan="8" align="center" nowrap class="color-rowalert STYLE1">ѧ��Υ�ʹ�����Ϣ</td>
+	</tr>
+	   
+</table>
+<hr/>
+<table  border="1" align="center"  width="80%" bordercolor="#B4E2A4" style="BORDER-COLLAPSE:collapse" cellspacing="1" class=tableborder>
+  <tr class="color-header" height="28px">
+    <td height="35" colspan="8" align="center" nowrap class="color-rowalert STYLE1">ѧ��ѧ���춯��Ϣ</td>
+	</tr>
+	 
+</table>
+<tr>
+      <td height="10" align="center" valign="middle" nowrap ></td>
+    </tr>
+</form>
+
+</body>
+</html>
