@@ -21,7 +21,7 @@ func initAll() {
 
 const (
 	verify_code_url string = "http://jwc.sut.edu.cn/ACTIONVALIDATERANDOMPICTURE.APPPROCESS"
-	getUrl          string = "http://jwc.sut.edu.cn/ACTIONQUERYSTUDENT.APPPROCESS"
+	getUrl          string = "http://jwc.sut.edu.cn/ACTIONQUERYSTUDENTPIC.APPPROCESS?ByStudentNO=null"
 	login_url       string = "http://jwc.sut.edu.cn/ACTIONLOGON.APPPROCESS?mode=3"
 	post_login_url  string = "http://jwc.sut.edu.cn/ACTIONLOGON.APPPROCESS?mode=4"
 	uname           string = "学号"
@@ -107,11 +107,16 @@ func getBody() string {
 		CheckRedirect: nil,
 		Jar:           gCurCookieJar,
 	}
+	// header := make(http.Header)
+	// header.Set("Content-Type", "application/x-www-form-urlencoded")
 	resp, err := httpClient.Get(getUrl)
 	if err != nil {
 		fmt.Println("login出错:", err.Error())
 	}
+	file, _ := os.Create("phone.gif")
+	io.Copy(file, resp.Body)
 	body, err := ioutil.ReadAll(resp.Body)
+
 	return string(body)
 }
 
